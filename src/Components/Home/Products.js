@@ -46,7 +46,6 @@ const Products = ({ cartItems, setCartItems }) => {
 
     // add to cart function
     const handleAddToCart = (product) => {
-        console.log(product);
         const exist = cartItems.find(item => item._id === product._id);
         if (!exist) {
             const addedCardItems = [...cartItems, product];

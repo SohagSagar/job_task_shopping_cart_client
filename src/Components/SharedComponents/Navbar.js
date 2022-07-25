@@ -14,8 +14,9 @@ import Cart from '../Cart/Cart';
 
 const Navbar = ({cartItems,setCartItems}) => {
     const [user, loading] = useAuthState(auth);
-    const navigate = useNavigate();
     const [cartOffsetStatus,setCartOffsetStatus]=useState(true);
+    const navigate = useNavigate();
+
 
     //sign out user
     const signout = () => {
@@ -32,7 +33,7 @@ const Navbar = ({cartItems,setCartItems}) => {
             user && <li className='px-10 text-accent italic'> Welcome {user?.displayName} </li>
         }
         
-        <label  for="my-modal-6" class="cursor-pointer">Cart <sup className='p-1 text-primary font-bold'>{cartItems?.length}</sup> </label>
+        <label onClick={()=>setCartOffsetStatus(true)} for="my-modal-6" class="cursor-pointer">Cart <sup className='p-1 text-primary font-bold'>{cartItems?.length}</sup> </label>
         {
             !user ? <Link className='px-5 ' to="/login">Login</Link> :
                 <Link className='px-5 ' to="/dashboard">Dashboard</Link>
@@ -66,7 +67,7 @@ const Navbar = ({cartItems,setCartItems}) => {
             </div>
             
             {
-                cartOffsetStatus && <Cart cartItems={cartItems} setCartItems={setCartItems}/>
+                cartOffsetStatus && <Cart cartItems={cartItems} setCartItems={setCartItems} setCartOffsetStatus={setCartOffsetStatus}/>
             }
 
         </div>

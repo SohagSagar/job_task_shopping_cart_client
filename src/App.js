@@ -8,32 +8,44 @@ import { Toaster } from 'react-hot-toast';
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Products from "./Components/Home/Products";
 import { useState } from "react";
+import Checkout from "./Components/Checkout/Checkout";
+import RequireAuth from "./Components/SharedComponents/RequireAuth";
+
 // import FoodDetails from "./Components/FoodDetails";
 
 
 
 function App() {
-  const [cartItems,setCartItems]=useState([]);
+  const [cartItems, setCartItems] = useState([]);
+
   return (
     <div className="text-accent ">
-      <Navbar cartItems={cartItems} setCartItems={setCartItems}/>
+      <Navbar cartItems={cartItems} setCartItems={setCartItems} />
       <Routes>
         <Route path={"/"} element={
           <>
-            
+
             {/* <FoodDetails/> */}
-            <Products  cartItems={cartItems} setCartItems={setCartItems}/>
+            <Products cartItems={cartItems} setCartItems={setCartItems} />
 
           </>
-        }/>
-        
+        } />
+
         {/* <Route path="/dashboard" element={<Dashboard/>}></Route> */}
         <Route path="login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+
+        <Route path="/checkout" element={
+          <RequireAuth>
+            <Checkout cartItems={cartItems} />
+          </RequireAuth>
+        }></Route>
+
+
       </Routes>
 
       <Footer />
-      <Toaster position="top-center"/>
+      <Toaster position="top-center" />
     </div>
   );
 }

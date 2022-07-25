@@ -5,11 +5,6 @@ import { HiMinus } from 'react-icons/hi';
 const CartItems = ({cartItem,handleRemoveCartItem}) => {
     const {_id,name,img,price} = cartItem;
     
-    // const handleRemoveCartItem = (_id) =>{
-    //      const remainingCartItems = cartItem.filter(item => item._id !==_id);
-    //      setCartItems(remainingCartItems);
-    //      console.log('object');
-    // }
     return (
         <div className='flex justify-between items-center rounded-lg border px-1 my-2'>
             <img className='w-10 rounded' src={img} alt="" />
