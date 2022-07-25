@@ -11,7 +11,6 @@ import { useState } from "react";
 import Checkout from "./Components/Checkout/Checkout";
 import RequireAuth from "./Components/SharedComponents/RequireAuth";
 
-// import FoodDetails from "./Components/FoodDetails";
 
 
 
@@ -22,23 +21,13 @@ function App() {
     <div className="text-accent ">
       <Navbar cartItems={cartItems} setCartItems={setCartItems} />
       <Routes>
-        <Route path={"/"} element={
-          <>
+        <Route path={"/"} element={<Products cartItems={cartItems} setCartItems={setCartItems} />} />
 
-            {/* <FoodDetails/> */}
-            <Products cartItems={cartItems} setCartItems={setCartItems} />
-
-          </>
-        } />
-
-        {/* <Route path="/dashboard" element={<Dashboard/>}></Route> */}
         <Route path="login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
 
-        <Route path="/checkout" element={
-          <RequireAuth>
-            <Checkout cartItems={cartItems} />
-          </RequireAuth>
+        <Route path="/dashboard" element={<RequireAuth><Dashboard/></RequireAuth>}></Route>
+        <Route path="/checkout" element={<RequireAuth><Checkout cartItems={cartItems} /></RequireAuth>
         }></Route>
 
 

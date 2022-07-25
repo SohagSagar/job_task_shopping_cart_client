@@ -1,11 +1,56 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../Firebase/Firebase';
+import Loading from '../SharedComponents/Loading';
 
 const Checkout = ({ cartItems }) => {
+    const navigate =useNavigate()
+    const [user, loading] = useAuthState(auth);
+    if(loading){
+        return <Loading/>
+    }
+    
     let total = 0;
     cartItems.map(cartItem => <>
         {total = total + parseInt(cartItem?.price)}
     </>);
-    console.log(cartItems.length);
+    const dateTime = new Date().toLocaleString();
+
+    
+
+    const placeOrder = () =>{
+        const orderItems={
+            items:cartItems,
+            total:total,
+            dateTime:dateTime,
+            orderStatus:"Processing",
+            email:user.email
+
+        }
+
+        fetch('http://localhost:5000/order',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(orderItems)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.insertedId){
+                toast.success('Order place successfully')
+                navigate('/dashboard');
+               
+            }
+            else{
+                toast.error('Fail to place order')
+            }
+        })
+
+        
+    }
 
     return (
         <div className='min-h-screen lg:px-12'>
@@ -51,7 +96,7 @@ const Checkout = ({ cartItems }) => {
 
             </div>
             {
-                <button disabled={cartItems?.length===0} class="btn btn-success  btn-wide mx-auto flex justify-center mt-2">Place Order</button>
+                <button onClick={()=>placeOrder()} disabled={cartItems?.length===0} class="btn btn-success  btn-wide mx-auto flex justify-center mt-2">Place Order</button>
             }
 
         </div >

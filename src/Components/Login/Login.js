@@ -60,7 +60,7 @@ const Login = () => {
     }
 
     return (
-        <div className=''>
+        <div className='min-h-screen'>
             <div className='min-h-screen bg-[#e4bcc4]   flex justify-center items-center'>
                 <div class="card w-96 bg-base-100 signup-card mx-auto ">
                     <div class="card-body">
