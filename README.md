@@ -1,10 +1,12 @@
 # project details
 - project name: Happy shopping cart
-- live: 
+- live: https://shopping-cart-61d41.web.app/
 - client: https://github.com/SohagSagar/job_task_shopping_cart_client
 - server: https://github.com/SohagSagar/job_task_shopping_cart_server
+- stacks: react js, firebase (authentication), tailwind css, daisy ui, nodejs, express js, mongodb etc.
 - credentials: email:sohag@gmail.com
                password: sohag123
+
 
 # Getting Started with Create React App
 

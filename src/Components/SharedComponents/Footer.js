@@ -1,8 +1,8 @@
 import React from 'react';
-import whiteLogo from '../../resources/logo1.png';
 import { BsFacebook } from 'react-icons/bs';
 import { IoLogoInstagram } from 'react-icons/io';
 import { FaTwitter } from 'react-icons/fa';
+import logo from '../../resources/logo.png';
 
 const Footer = () => {
     return (
@@ -10,8 +10,8 @@ const Footer = () => {
 
             <div className=' flex justify-between items-start '>
                 <div>
-                    <img className='w-36' src={whiteLogo} alt="" srcset="" />
-                    <p className='mt-3 ml-1 text-gray-500'>Copyright @ Red Onion Foods</p>
+                    <img className='w-36' src={logo} alt="" srcset="" />
+                    <p className='mt-3 ml-1 text-gray-500'>Copyright @ Happy Online Shopping</p>
                 </div>
                 <div className='flex flex-col'>
                     <span className="footer-title normal-case">Quick Links</span>
