@@ -1,3 +1,11 @@
+# project details
+- project name: Happy shopping cart
+- live: 
+- client: https://github.com/SohagSagar/job_task_shopping_cart_client
+- server: https://github.com/SohagSagar/job_task_shopping_cart_server
+- credentials: email:sohag@gmail.com
+               password: sohag123
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

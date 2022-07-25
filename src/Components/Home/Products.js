@@ -10,7 +10,7 @@ const Products = ({ cartItems, setCartItems }) => {
     const [activeBtn, setActiveBtn] = useState('allProducts');
     const [searchedText, setSearchedText] = useState('');
 
-    const { data: products, isLoading } = useQuery(['products', category], () => fetch(`http://localhost:5000/products/${category}`).then(res => res.json()));
+    const { data: products, isLoading } = useQuery(['products', category], () => fetch(`https://ancient-chamber-40137.herokuapp.com/products/${category}`).then(res => res.json()));
 
     const clearSearchedField = () => {
         document.getElementById('search-input').value = '';
@@ -64,7 +64,7 @@ const Products = ({ cartItems, setCartItems }) => {
 
             <div className='flex flex-col justify-center items-center font-semibold gap-7'>
                 {/* input field for searching data */}
-                <input onChange={e => setSearchedText(e.target.value)} id="search-input" type="text" placeholder="Search Your Product..." class="input input-bordered rounded-full w-full max-w-xs lg:max-w-lg" />
+                <input onChange={e => setSearchedText(e.target.value)} id="search-input" type="text" placeholder="Search Your Product..." className="input input-bordered rounded-full w-full max-w-xs lg:max-w-lg" />
 
                 {/* key word for filtering data */}
                 <div>

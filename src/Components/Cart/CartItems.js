@@ -16,7 +16,7 @@ const CartItems = ({cartItem,handleRemoveCartItem}) => {
                 <button className='btn btn-ghost p-2 text-primary text-xl'><HiMinus /></button>
             </div>
             <p>$<span>{price}</span></p>
-            <button onClick={()=>handleRemoveCartItem(_id)} class="btn btn-error btn-sm font-semibold text-white">X</button>
+            <button onClick={()=>handleRemoveCartItem(_id)} className="btn btn-error btn-sm font-semibold text-white">X</button>
 
         </div>
     );

@@ -13,10 +13,10 @@ const Cart = ({ cartItems, setCartItems,setCartOffsetStatus }) => {
     return (
         <div>
             {/* <!-- Put this part before </body> tag-- > */}
-            <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-            <div class="modal modal-middle sm:modal-middle">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg text-center">Added Items <sup>{cartItems?.length}</sup></h3><hr />
+            <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+            <div className="modal modal-middle sm:modal-middle">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg text-center">Added Items <sup>{cartItems?.length}</sup></h3><hr />
                     {
                         !cartItems?.length && <p className='text-center my-5 text-red-500'>Cart is empty</p>
                     }
@@ -27,10 +27,10 @@ const Cart = ({ cartItems, setCartItems,setCartOffsetStatus }) => {
                             handleRemoveCartItem={handleRemoveCartItem}
                         ></CartItems>)
                     }
-                    <div class="modal-action flex justify-center ">
-                        <button onClick={()=>setCartOffsetStatus(   false)} for="my-modal-6" disabled={!cartItems?.length} class="btn btn-sm normal-case font-semibold"><Link to={'/checkout'}>Review Order</Link></button>
+                    <div className="modal-action flex justify-center ">
+                        <button onClick={()=>setCartOffsetStatus(   false)} for="my-modal-6" disabled={!cartItems?.length} className="btn btn-sm normal-case font-semibold"><Link to={'/checkout'}>Review Order</Link></button>
 
-                        <label for="my-modal-6" class="btn btn-sm normal-case btn-error text-white font-semibold">Close Cart</label>
+                        <label for="my-modal-6" className="btn btn-sm normal-case btn-error text-white font-semibold">Close Cart</label>
                         
                     </div>
                 </div>

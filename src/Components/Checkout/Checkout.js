@@ -30,7 +30,7 @@ const Checkout = ({ cartItems }) => {
 
         }
 
-        fetch('http://localhost:5000/order',{
+        fetch('https://ancient-chamber-40137.herokuapp.com/order',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -59,8 +59,8 @@ const Checkout = ({ cartItems }) => {
                 {
                     !cartItems.length ? <p className='text-center text-lg my-12'>No product to review</p> :
 
-                            <div class="overflow-x-auto my-5">
-                                <table class="table w-full">
+                            <div className="overflow-x-auto my-5">
+                                <table className="table w-full">
                                     {/* <!-- head --> */}
                                     <thead>
                                         <tr>
@@ -96,7 +96,7 @@ const Checkout = ({ cartItems }) => {
 
             </div>
             {
-                <button onClick={()=>placeOrder()} disabled={cartItems?.length===0} class="btn btn-success  btn-wide mx-auto flex justify-center mt-2">Place Order</button>
+                <button onClick={()=>placeOrder()} disabled={cartItems?.length===0} className="btn btn-success  btn-wide mx-auto flex justify-center mt-2">Place Order</button>
             }
 
         </div >

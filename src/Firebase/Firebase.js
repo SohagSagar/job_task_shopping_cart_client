@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAJdYh8aRNrF_l2U_w-mutIQ9rugEy9w5M",
-    authDomain: "red-onion-4b109.firebaseapp.com",
-    projectId: "red-onion-4b109",
-    storageBucket: "red-onion-4b109.appspot.com",
-    messagingSenderId: "40892745665",
-    appId: "1:40892745665:web:4f1f451313d0c79b0a5140"
+  apiKey: "AIzaSyCqwcpfquxzdX8qxoyTeqHszWAV5BqpyxI",
+  authDomain: "shopping-cart-61d41.firebaseapp.com",
+  projectId: "shopping-cart-61d41",
+  storageBucket: "shopping-cart-61d41.appspot.com",
+  messagingSenderId: "163559315540",
+  appId: "1:163559315540:web:0b7e9277138a46af5bb5c1"
 };
 
 // Initialize Firebase

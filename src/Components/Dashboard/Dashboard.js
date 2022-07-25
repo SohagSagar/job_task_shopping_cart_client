@@ -8,7 +8,7 @@ import Loading from '../SharedComponents/Loading';
 const Dashboard = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
-    const { data: products, isLoading } = useQuery(['products',user], () => fetch(`http://localhost:5000/order/${email}`).then(res => res.json()));
+    const { data: products, isLoading } = useQuery(['products',user], () => fetch(`https://ancient-chamber-40137.herokuapp.com/order/${email}`).then(res => res.json()));
 
  
     return (
@@ -24,8 +24,8 @@ const Dashboard = () => {
 
             {
                 products?.lenght < 1 ? <p className='text-center text-lg my-12'>No product to review</p> :
-                    <div class="overflow-x-auto">
-                        <table class="table w-full">
+                    <div className="overflow-x-auto">
+                        <table className="table w-full">
 
                             <thead>
                                 <tr>
@@ -47,7 +47,7 @@ const Dashboard = () => {
                                             <td>{product._id}</td>
                                             <td>{product.dateTime}</td>
                                             <td>{product?.items?.length}</td>
-                                            <td  class="badge badge-success mt-2 badge-sm">{product?.orderStatus}</td>
+                                            <td  className="badge badge-success mt-2 badge-sm">{product?.orderStatus}</td>
                                             <td>{product.total}</td>
                                             <td>Details | Cancel</td>
                                         </tr>
