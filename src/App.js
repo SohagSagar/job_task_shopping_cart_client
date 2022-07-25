@@ -7,21 +7,22 @@ import Signup from "./Components/Login/Signup";
 import { Toaster } from 'react-hot-toast';
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Products from "./Components/Home/Products";
+import { useState } from "react";
 // import FoodDetails from "./Components/FoodDetails";
 
 
 
 function App() {
+  const [cartItems,setCartItems]=useState([]);
   return (
     <div className="text-accent ">
-      <Navbar />
-
+      <Navbar cartItems={cartItems} setCartItems={setCartItems}/>
       <Routes>
         <Route path={"/"} element={
           <>
             
             {/* <FoodDetails/> */}
-            <Products/>
+            <Products  cartItems={cartItems} setCartItems={setCartItems}/>
 
           </>
         }/>
@@ -32,7 +33,7 @@ function App() {
       </Routes>
 
       <Footer />
-      <Toaster />
+      <Toaster position="top-center"/>
     </div>
   );
 }

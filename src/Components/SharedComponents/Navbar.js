@@ -7,12 +7,15 @@ import auth from '../../Firebase/Firebase';
 import Loading from './Loading';
 import { signOut } from 'firebase/auth';
 import toast from 'react-hot-toast';
+import { useState } from 'react';
+import Cart from '../Cart/Cart';
 
 
 
-const Navbar = () => {
+const Navbar = ({cartItems,setCartItems}) => {
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
+    const [cartOffsetStatus,setCartOffsetStatus]=useState(true);
 
     //sign out user
     const signout = () => {
@@ -28,8 +31,8 @@ const Navbar = () => {
         {
             user && <li className='px-10 text-accent italic'> Welcome {user?.displayName} </li>
         }
-
-        <li className=' text-accent'> Cart <sup className='p-1'>0</sup></li>
+        
+        <label  for="my-modal-6" class="cursor-pointer">Cart <sup className='p-1 text-primary font-bold'>{cartItems?.length}</sup> </label>
         {
             !user ? <Link className='px-5 ' to="/login">Login</Link> :
                 <Link className='px-5 ' to="/dashboard">Dashboard</Link>
@@ -43,7 +46,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div class="lg:px-12 navbar bg-secondary  shadow-2xl font-semibold ">
+        <div class="lg:px-12 navbar bg-secondary shadow-sm font-semibold ">
             <div class="navbar-start flex items-center">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -54,14 +57,17 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <Link to={'/'} class=" text-xl"><img className='w-36' src={logo} alt="" srcset="" /></Link>
+                <Link to={'/'} class=" text-xl"><img className='w-28' src={logo} alt="" srcset="" /></Link>
             </div>
             <div class="navbar-end hidden lg:flex">
                 <ul class="menu menu-horizontal pl-4">
                     {menu}
                 </ul>
             </div>
-            {/* <BsCartCheck/> */}
+            
+            {
+                cartOffsetStatus && <Cart cartItems={cartItems} setCartItems={setCartItems}/>
+            }
 
         </div>
     );

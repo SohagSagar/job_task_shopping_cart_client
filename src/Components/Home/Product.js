@@ -3,7 +3,7 @@ import { TbCurrencyDollar } from 'react-icons/tb';
 import food from '../../resources/test.png';
 import '../../Styles/Product.css'
 
-const Product = ({product}) => {
+const Product = ({product,handleAddToCart,setCartItems}) => {
     const {_id,name,price,short_des,img} = product;
     return (
         <div class="card w-[300px] bg-base-100 food-card text-center mt-10 cursor-pointer">
@@ -16,7 +16,7 @@ const Product = ({product}) => {
                 {/* card buttons */}
                 <div className='gap-3 flex justify-center '>
                     <button class="btn btn-sm normal-case">Details</button>
-                    <button class="btn btn-sm btn-primary normal-case">Add Cart</button>
+                    <button onClick={()=>handleAddToCart(product)} class="btn btn-sm btn-primary normal-case">Add Cart</button>
                 </div>
             </div>
         </div>
